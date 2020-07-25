@@ -1,0 +1,1 @@
+ displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
