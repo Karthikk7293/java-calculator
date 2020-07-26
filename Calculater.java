@@ -21,12 +21,18 @@ public class Calculater implements ActionListener {
 
     JFrame frame;
     JLabel displayLabel;
+    JLabel displayLabel2;
 
-    boolean isOperatedClicked=false;
+    boolean isSubOperatedClicked=false;
     boolean isDivisionOperatedClicked=false;
     boolean isPlusOperatedClicked=false;
     boolean isMulOperatedClicked=false;
     String oldValue;
+
+    boolean plusButtonClicked=false;
+    boolean subtractionButtonClicked=false;
+    boolean mulButtonClicked=false;
+    boolean divisionButtonClicked=false;
 
 
     JButton sevenButton;
@@ -51,7 +57,7 @@ public class Calculater implements ActionListener {
    
 
     public Calculater() {
-        frame = new JFrame("Calculater"); // name of the application
+        frame = new JFrame("Calculator"); // name of the application
         frame.setLayout(null);
         frame.setSize(440, 700); // size of the app
         frame.setLocation(380, 20); // margine from left corner of the screen
@@ -61,13 +67,21 @@ public class Calculater implements ActionListener {
 
         displayLabel = new JLabel(""); // atribute for display
         displayLabel.setFont(new FontUIResource("arial", Font.ITALIC, 30));
-        displayLabel.setBounds(20, 20, 380, 60);
-        displayLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        displayLabel.setBounds(50, 20, 350, 60);
         displayLabel.setBackground(Color.WHITE);
         displayLabel.setForeground(Color.BLACK);// this atribute for giving color for the leters on the dispaylabel
         displayLabel.setOpaque(true);
         displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         frame.add(displayLabel);
+
+        displayLabel2 = new JLabel(""); // atribute for second  display
+        displayLabel2.setFont(new FontUIResource("arial", Font.ITALIC, 30));
+        displayLabel2.setBounds(20, 20, 30, 60);
+        displayLabel2.setBackground(Color.WHITE);
+        displayLabel2.setForeground(Color.BLACK);// this atribute for giving color for the leters on the dispaylabel
+        displayLabel2.setOpaque(true);
+        displayLabel2.setHorizontalAlignment(SwingConstants.LEFT);
+        frame.add(displayLabel2);
 
         sevenButton = new JButton("7");
         sevenButton.setBounds(20, 100, 80, 80);
@@ -135,13 +149,6 @@ public class Calculater implements ActionListener {
         dotButton.setFont(new Font("arial", Font.PLAIN, 40));
         frame.add(dotButton);
 
-        clearButton =new JButton("clear");
-        clearButton.setBounds(20, 500, 80, 80);
-        clearButton.addActionListener(this);
-        clearButton.setFont(new Font("areal" ,Font.PLAIN, 20 ));
-        frame.add(clearButton);
-
-
         equalButton = new JButton("=");
         equalButton.setBounds(220, 400, 80, 80);
         equalButton.addActionListener(this);
@@ -172,6 +179,12 @@ public class Calculater implements ActionListener {
         multiplicationButton.setFont(new Font("arial", Font.PLAIN, 40));
         frame.add(multiplicationButton);
 
+        clearButton =new JButton("clear");
+        clearButton.setBounds(20, 500, 80, 80);
+        clearButton.addActionListener(this);
+        clearButton.setFont(new Font("areal" ,Font.PLAIN, 20 ));
+        frame.add(clearButton);
+
     
     }
 
@@ -183,72 +196,287 @@ public class Calculater implements ActionListener {
     public void actionPerformed(final ActionEvent e) {
    
     if (e.getSource()== sevenButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("7");
-
+        if(isPlusOperatedClicked){
+            displayLabel.setText("7");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("7");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("7");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("7");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"7");
+        }
     }else if(e.getSource()== eightButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("8");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("8");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("8");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("8");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("8");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"8");
+        }
 
     }else if(e.getSource()== nineButton){
-        displayLabel.setText("9");
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        if(isPlusOperatedClicked){
+            displayLabel.setText("9");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("9");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("9");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("9");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"9");
+        }
         
     }else if(e.getSource()== fourButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("4");
-
+        if(isPlusOperatedClicked){
+            displayLabel.setText("4");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("4");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("4");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("4");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"4");
+        }
     }else if(e.getSource()== fiveButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("5");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("5");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("5");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("5");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("5");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"5");
+        }
 
     }else if(e.getSource()== sixButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("6");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("6");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("6");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("6");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("6");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"6");
+        }
         
     }else if(e.getSource()== oneButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("1");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("1");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("1");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("1");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("1");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"1");
+        }
 
     }else if(e.getSource()== twoButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("2");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("2");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("2");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("2");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("2");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"2");
+        }
 
     }else if(e.getSource()==threeButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("3");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("3");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("3");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("3");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("3");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"3");
+        }
 
     }else if(e.getSource()== zeroButton){
-        displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText("0");
+        if(isPlusOperatedClicked){
+            displayLabel.setText("0");
+            isPlusOperatedClicked=false;
+            plusButtonClicked=true;
+        }else if(isSubOperatedClicked){
+            displayLabel.setText("0");
+            isSubOperatedClicked=false;
+            subtractionButtonClicked=true;
+        }else if(isMulOperatedClicked){
+            displayLabel.setText("0");
+            isMulOperatedClicked=false;
+            mulButtonClicked=true;
+        }else if(isDivisionOperatedClicked){
+            displayLabel.setText("0");
+            isDivisionOperatedClicked=false;
+            divisionButtonClicked=true;
+        }else{
+            displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayLabel.setText(displayLabel.getText()+"0");
+        }
 
     }else if(e.getSource()==dotButton){
         displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayLabel.setText(".");
-
-    }else if(e.getSource()==clearButton){
-        displayLabel.setText("");
+        displayLabel.setText(displayLabel.getText()+".");
 
     }else if(e.getSource()==plusButton){
-        displayLabel.setText("+");
-        displayLabel.setHorizontalAlignment(SwingConstants.LEFT);
-
+        isPlusOperatedClicked=true;
+        oldValue=displayLabel.getText();
+       displayLabel2.setText("+");
+        displayLabel2.setHorizontalAlignment(SwingConstants.LEFT);
     }else if(e.getSource() == subtrButton){
-        displayLabel.setText("-");
-        displayLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        isSubOperatedClicked=true;
+        oldValue=displayLabel.getText();
+       displayLabel2.setText("-");
+        displayLabel2.setHorizontalAlignment(SwingConstants.LEFT);
     }else if(e.getSource() == multiplicationButton){
-        displayLabel.setText("x");
-        displayLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        isMulOperatedClicked=true;
+        oldValue=displayLabel.getText();
+       displayLabel2.setText("x");
+        displayLabel2.setHorizontalAlignment(SwingConstants.LEFT);
     }else if(e.getSource() == divisionButton){
-        displayLabel.setText("/");
-        displayLabel.setHorizontalAlignment(SwingConstants.LEFT);
-    }
-        
+        isDivisionOperatedClicked=true;
+        oldValue=displayLabel.getText();
+       displayLabel2.setText("/");
+        displayLabel2.setHorizontalAlignment(SwingConstants.LEFT);
+    }else if(e.getSource()==clearButton){
+        displayLabel.setText("");
+        displayLabel2.setText("");
 
+    }else if(e.getSource() == equalButton){
+
+       
+       if(plusButtonClicked){
+        String newValue = displayLabel.getText();
+        float oldValueF =Float.parseFloat(oldValue);
+        float newValueF =Float.parseFloat(newValue);
+        float result = newValueF + oldValueF;
+        displayLabel.setText(result+"");
+        isPlusOperatedClicked=false;
+       }else if(subtractionButtonClicked){
+        String newValue = displayLabel.getText();
+        float oldValueF =Float.parseFloat(oldValue);
+        float newValueF =Float.parseFloat(newValue);
+        float result = newValueF - oldValueF;
+        displayLabel.setText(result+"");
+        isSubOperatedClicked=false;
+       }else if(mulButtonClicked){
+        String newValue = displayLabel.getText();
+        float oldValueF =Float.parseFloat(oldValue);
+        float newValueF =Float.parseFloat(newValue);
+        float result = newValueF * oldValueF;
+        displayLabel.setText(result+""); 
+       }else if(divisionButtonClicked){
+        String newValue = displayLabel.getText();
+        float oldValueF =Float.parseFloat(oldValue);
+        float newValueF =Float.parseFloat(newValue);
+        float result = newValueF / oldValueF;
+        displayLabel.setText(result+"");
+        isDivisionOperatedClicked=false;
+       }
+       
+    }       
     
-}
+ }
    
-
 }
 
 
